@@ -1,5 +1,5 @@
 import express from "express";
-import { createUser, loginUser, logoutCurrentUser, getAllUsers, getCurrentUserProfile, updateCurrentUserProfile, } from "../controllers/userController.js"; // ✅ đường dẫn chuẩn
+import { createUser, loginUser, logoutCurrentUser, getAllUsers, getCurrentUserProfile, updateCurrentUserProfile, deleteUserById, } from "../controllers/userController.js"; // ✅ đường dẫn chuẩn
 
 import { authenticate, authorizeAdmin } from "../middlewares/authMiddleware.js"
 
