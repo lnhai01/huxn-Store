@@ -1,5 +1,8 @@
 import express from "express";
-import { createUser, loginUser, logoutCurrentUser, getAllUsers, getCurrentUserProfile, updateCurrentUserProfile, deleteUserById, } from "../controllers/userController.js"; // ✅ đường dẫn chuẩn
+import {
+  createUser, loginUser, logoutCurrentUser, getAllUsers, getCurrentUserProfile,
+  updateCurrentUserProfile, deleteUserById, getUserById, updateUserById,
+} from "../controllers/userController.js"; // ✅ đường dẫn chuẩn
 
 import { authenticate, authorizeAdmin } from "../middlewares/authMiddleware.js"
 
@@ -14,5 +17,7 @@ router.route('/profile').get(authenticate, getCurrentUserProfile).put(authentica
 
 // ADMIN ROUTES
 router.route('/:id').delete(authenticate, authorizeAdmin, deleteUserById)
+  .get(authenticate, authorizeAdmin, getUserById)
+  .put(authenticate, authorizeAdmin, updateUserById)
 
 export default router;
